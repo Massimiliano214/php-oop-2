@@ -12,8 +12,8 @@
         {
             $this->item = $item;
             $this->price = $price;
-            $this->type = $type;
-            $this->genre = $genre;
+        //    $this->type = $type;
+        //    $this->genre = $genre;
             $this->img = $img;
             $this->breed = $breed;
         }
