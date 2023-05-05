@@ -10,11 +10,11 @@
     $cat = new Breed('Gatto');
 
     $productsList = [
-        new Food('Croccantini', '13,50 $', 'cibo', '300 calorie', './images/croccantini.jpg', $dog, '300 calorie'),
-        new Game('Cat Nip', '5,00 $', 'droga', 'intrattenimento', './images/catnip.jpg', $cat),
-        new Game('Gioco', '10,00 $', 'giocattolo', 'intrattenimento', './images/gioco_gatto.jpg', $cat),
-        new Kennel('Guinzaglio', '20,00 $', 'utilità', 'neccessità', './images/leash.jpg', $dog),
-        new Kennel('Cuccia', '50,00 $', 'utilità', 'neccessità', './images/cucciaCani.jpg', $cat)
+        new Food('Croccantini', '13,50 $', './images/croccantini.jpg', $dog, '300 calorie'),
+        new Game('Cat Nip', '5,00 $', './images/catnip.jpg', $cat, 'Droga'),
+        new Game('Gioco', '10,00 $', './images/gioco_gatto.jpg', $cat, 'Intrattenimento'),
+        new Kennel('Guinzaglio', '20,00 $', './images/leash.jpg', $dog, 'Utilità'),
+        new Kennel('Cuccia', '50,00 $', './images/cucciaCani.jpg', $cat, 'Utilità')
     ]
 //  var_dump($food);
 //  var_dump($catNip);
@@ -57,15 +57,33 @@
                             }
                             ?>
                             <?php
+                                if (isset($product->type)) {
+                                
+                                    echo '<span> Genere: ' . $product->type . '</span>
+                                    <br>'
+                                    ?>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if (isset($product->genre)) {
+                            
+                                    echo '<span> Genere: ' . $product->genre . '</span>
+                                    <br>'
+                                    ?>
+                                    <?php
+                                }
+                            ?>
+                            <?php
 
-                            echo '<span class="card-text"> Prezzo: ' . $product->price . '</span>
-                            <br>
-                            <a href="#" class="btn btn-primary my-5">Acquista</a>
-                        </div>
-                    </div>';
-                }
+                                echo '<span class="card-text"> Prezzo: ' . $product->price . '</span>
+                                <br>
+                                <a href="#" class="btn btn-primary my-5">Acquista</a>
+                            </div>
+                        </div>';
+                    }
             
-            ?>
+                ?>
         </div>
 
     </main>

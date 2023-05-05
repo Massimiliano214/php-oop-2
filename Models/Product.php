@@ -8,12 +8,11 @@
         public $img;
         public $breed;
 
-        public function __construct($item, $price, $type, $genre, $img, Breed $breed)
+        public function __construct($item, $price, $img, Breed $breed)
         {
             $this->item = $item;
             $this->price = $price;
-            $this->type = $type;
-            $this->genre = $genre;
+            
             $this->img = $img;
             $this->breed = $breed;
         }
