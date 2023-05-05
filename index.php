@@ -60,7 +60,7 @@
                             <?php
                             if (isset($product->calories)) {
                                 
-                                echo '<p> Genere: ' . $product->calories . '</p>
+                                echo '<p> Peso: ' . $product->calories . '</p>
                                 <br>'
                                 ?>
                                 <?php
@@ -69,7 +69,7 @@
                             <?php
                                 if (isset($product->type)) {
                                 
-                                    echo '<p> Genere: ' . $product->type . '</p>
+                                    echo '<p> Tipo: ' . $product->type . '</p>
                                     <br>'
                                     ?>
                                     <?php
