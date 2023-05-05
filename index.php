@@ -1,15 +1,20 @@
 <?php 
 
     require_once __DIR__ . '/Models/Product.php';
-    require_once __DIR__ . '/Models/Dog.php';
-    require_once __DIR__ . '/Models/Cat.php';
+    require_once __DIR__ . '/Models/Breed.php';
+    require_once __DIR__ . '/Models/Kennel.php';
+    require_once __DIR__ . '/Models/Food.php';
+    require_once __DIR__ . '/Models/Game.php';
+
+    $dog = new Breed('Cane');
+    $cat = new Breed('Gatto');
 
     $productsList = [
-        $food = new Dog('Croccantini', '13,50 $', 'cibo', '300 calorie', './images/croccantini.jpg'),
-        $catNip = new Cat('Cat Nip', '5,00 $', 'droga', 'intrattenimento', './images/catnip.jpg'),
-        $game = new Cat('Gioco', '10,00 $', 'giocattolo', 'intrattenimento', './images/gioco_gatto.jpg'),
-        $leash = new Dog('Guinzaglio', '20,00 $', 'utilità', 'neccessità', './images/leash.jpg'),
-        $kennels = new Dog('Cuccia', '50,00 $', 'utilità', 'neccessità', './images/cucciaCani.jpg')
+        new Food('Croccantini', '13,50 $', 'cibo', '300 calorie', './images/croccantini.jpg', $dog),
+        new Game('Cat Nip', '5,00 $', 'droga', 'intrattenimento', './images/catnip.jpg', $cat),
+        new Game('Gioco', '10,00 $', 'giocattolo', 'intrattenimento', './images/gioco_gatto.jpg', $cat),
+        new Kennel('Guinzaglio', '20,00 $', 'utilità', 'neccessità', './images/leash.jpg', $dog),
+        new Kennel('Cuccia', '50,00 $', 'utilità', 'neccessità', './images/cucciaCani.jpg', $cat)
     ]
 //  var_dump($food);
 //  var_dump($catNip);
@@ -35,14 +40,15 @@
             <?php foreach($productsList as $product) {
                 
               echo '<div class="card my-5" style="width: 30rem;">
-                        <img src="' . $product . '" class="card-img-top" alt="...">
+                        <img src="' . $product->img . '" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+                            <h5 class="card-title">' . $product->item . '</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
                             <a href="#" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>';
                 }
+                var_dump($product);
             
             ?>
         </div>
