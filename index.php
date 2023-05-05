@@ -92,7 +92,7 @@
                             </div>
                         </div>';
                     }
-                    var_dump($product->breed);
+                
                 ?>
         </div>
 
