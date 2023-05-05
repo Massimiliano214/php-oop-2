@@ -11,23 +11,11 @@
         $leash = new Dog('Guinzaglio', '20,00 $', 'utilità', 'neccessità', './images/leash.jpg'),
         $kennels = new Dog('Cuccia', '50,00 $', 'utilità', 'neccessità', './images/cucciaCani.jpg')
     ]
-
-
 //  var_dump($food);
-
-    
-
 //  var_dump($catNip);
-
-
 //  var_dump($game);
-
-
 //  var_dump($leash);
-
-
 //  var_dump($kennels);
-
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +35,7 @@
             <?php foreach($productsList as $product) {
                 
               echo '<div class="card my-5" style="width: 30rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="' . $product . '" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
