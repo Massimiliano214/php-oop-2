@@ -50,7 +50,7 @@
                             <?php
                             if (isset($product->calories)) {
                                 
-                                '<span> Genere: ' . $product->calories . '</span>
+                                echo '<span> Genere: ' . $product->calories . '</span>
                                 <br>'
                                 ?>
                                 <?php
@@ -58,7 +58,7 @@
                             ?>
                             <?php
 
-                            '<span class="card-text"> Prezzo: ' . $product->price . '</span>
+                            echo '<span class="card-text"> Prezzo: ' . $product->price . '</span>
                             <br>
                             <a href="#" class="btn btn-primary my-5">Acquista</a>
                         </div>
