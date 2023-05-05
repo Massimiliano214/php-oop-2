@@ -43,14 +43,24 @@
                         <img src="' . $product->img . '" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">' . $product->item . '</h5>
-                            <span class="card-text"> Type: ' . $product->type . '</span>
-                            <br>
+                            <span class="card-text"> Razza: '
+                            ?>
+                            <?php if ($product->breed == $dog) {
+                               echo 'per Gatti' ?>
+                            <?php
+                            } else {
+                                echo 'per Cani'
+                            ?>
+                            <?php
+                            }    
+                             '</span>
+
                             '
                             ?>
                             <?php
                             if (isset($product->calories)) {
                                 
-                                echo '<span> Genere: ' . $product->calories . '</span>
+                                echo '<p> Genere: ' . $product->calories . '</p>
                                 <br>'
                                 ?>
                                 <?php
@@ -59,7 +69,7 @@
                             <?php
                                 if (isset($product->type)) {
                                 
-                                    echo '<span> Genere: ' . $product->type . '</span>
+                                    echo '<p> Genere: ' . $product->type . '</p>
                                     <br>'
                                     ?>
                                     <?php
@@ -68,7 +78,7 @@
                             <?php
                                 if (isset($product->genre)) {
                             
-                                    echo '<span> Genere: ' . $product->genre . '</span>
+                                    echo '<p> Genere: ' . $product->genre . '</p>
                                     <br>'
                                     ?>
                                     <?php
@@ -82,7 +92,7 @@
                             </div>
                         </div>';
                     }
-            
+                    var_dump($product->breed);
                 ?>
         </div>
 
