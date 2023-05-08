@@ -10,19 +10,26 @@
     $dog = new Breed('Cane');
     $cat = new Breed('Gatto');
 
+
+    $food = new Food('Croccantini', '13,50 $', './images/croccantini.jpg', $dog, '300 calorie');
+    $food->setWeight(3);
+    $catNip = new Game('Cat Nip', '5,00 $', './images/catnip.jpg', $cat, 'Droga');
+    $game = new Game('Gioco', '10,00 $', './images/gioco_gatto.jpg', $cat, 'Intrattenimento');
+    $leash = new Kennel('Guinzaglio', '20,00 $', './images/leash.jpg', $dog, 'Utilità');
+    $leash->setWeight(0.2);
+    $kennel = new Kennel('Cuccia', '50,00 $', './images/cucciaCani.jpg', $dog , 'Utilità');
+    $kennel->setWeight(21);
+
     $productsList = [
-        new Food('Croccantini', '13,50 $', './images/croccantini.jpg', $dog, '300 calorie', 4.3),
-        new Game('Cat Nip', '5,00 $', './images/catnip.jpg', $cat, 'Droga'),
-        new Game('Gioco', '10,00 $', './images/gioco_gatto.jpg', $cat, 'Intrattenimento'),
-        new Kennel('Guinzaglio', '20,00 $', './images/leash.jpg', $dog, 'Utilità', 1.1),
-        new Kennel('Cuccia', '50,00 $', './images/cucciaCani.jpg', $dog, 'Utilità', 30)
+        $food,  $catNip, $game, $leash, $kennel
     ];
 //  var_dump($food);
 //  var_dump($catNip);
 //  var_dump($game);
 //  var_dump($leash);
 //  var_dump($kennels);
-    var_dump($productsList);
+//  var_dump($productsList);
+    
 ?>
 
 <!DOCTYPE html>
@@ -60,13 +67,29 @@
                             '
                             ?>
                             <?php
-                            if (isset($product->calories)) {
-                                
-                                echo '<p> Peso: ' . $product->calories . '</p>
-                                <br>'
-                                ?>
-                                <?php
-                            }
+
+                                if (isset($product->weight)) {
+
+                                    echo '<p> Peso spedizione: ' . $product->weight . ' Kg </p>
+                                    <br>';
+                                    try {
+                                        echo $product->checkNull($product->weight);
+                                    } catch (Exception $e) {
+                                        echo '<p> Si è verificato un errore: ' . $e->getMessage() . '</p>';
+                                    }
+                                    echo '<br>';
+                                    ?>
+                                    <?php
+                                }
+                            ?>
+                            <?php
+                                if (isset($product->calories)) {
+                                    
+                                    echo '<p> Peso: ' . $product->calories . '</p>
+                                    <br>'
+                                    ?>
+                                    <?php
+                                }
                             ?>
                             <?php
                                 if (isset($product->type)) {
@@ -87,15 +110,7 @@
                                 }
                             ?>
                             <?php
-                                if (isset($product->weight)) {
-                            
-                                    echo '<p> Peso prodotto: ' . $product->weight . '</p>
-                                    <br>'
-                                    ?>
-                                    <?php
-                                }
-                            ?>
-                            <?php
+                                
                                 echo '<span class="card-text"> Prezzo: ' . $product->price . '</span>
                                 <br>
                                 <a href="#" class="btn btn-primary my-5">Acquista</a>

@@ -6,11 +6,14 @@
 
         use Weightable;
         
-        public function __construct($item, $price, $img, Breed $breed, $type, $weight)
+        public function __construct($item, $price, $img, Breed $breed, $type)
         {
-            parent::__construct($item, $price, $img, $breed, $weight);
+            parent::__construct($item, $price, $img, $breed);
 
 
             $this->type = $type;
+            
+            
         }
+
     }
