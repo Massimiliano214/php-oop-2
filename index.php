@@ -5,22 +5,24 @@
     require_once __DIR__ . '/Models/Kennel.php';
     require_once __DIR__ . '/Models/Food.php';
     require_once __DIR__ . '/Models/Game.php';
+    require_once __DIR__ . '/Traits/Weightable.php';
 
     $dog = new Breed('Cane');
     $cat = new Breed('Gatto');
 
     $productsList = [
-        new Food('Croccantini', '13,50 $', './images/croccantini.jpg', $dog, '300 calorie'),
+        new Food('Croccantini', '13,50 $', './images/croccantini.jpg', $dog, '300 calorie', 4.3),
         new Game('Cat Nip', '5,00 $', './images/catnip.jpg', $cat, 'Droga'),
         new Game('Gioco', '10,00 $', './images/gioco_gatto.jpg', $cat, 'Intrattenimento'),
-        new Kennel('Guinzaglio', '20,00 $', './images/leash.jpg', $dog, 'Utilità'),
-        new Kennel('Cuccia', '50,00 $', './images/cucciaCani.jpg', $cat, 'Utilità')
-    ]
+        new Kennel('Guinzaglio', '20,00 $', './images/leash.jpg', $dog, 'Utilità', 1.1),
+        new Kennel('Cuccia', '50,00 $', './images/cucciaCani.jpg', $dog, 'Utilità', 30)
+    ];
 //  var_dump($food);
 //  var_dump($catNip);
 //  var_dump($game);
 //  var_dump($leash);
 //  var_dump($kennels);
+    var_dump($productsList);
 ?>
 
 <!DOCTYPE html>
@@ -46,10 +48,10 @@
                             <span class="card-text"> Razza: '
                             ?>
                             <?php if ($product->breed == $dog) {
-                               echo 'per Gatti' ?>
+                               echo 'per Cani' ?>
                             <?php
                             } else {
-                                echo 'per Cani'
+                                echo 'per Gatti'
                             ?>
                             <?php
                             }    
@@ -85,7 +87,15 @@
                                 }
                             ?>
                             <?php
-
+                                if (isset($product->weight)) {
+                            
+                                    echo '<p> Peso prodotto: ' . $product->weight . '</p>
+                                    <br>'
+                                    ?>
+                                    <?php
+                                }
+                            ?>
+                            <?php
                                 echo '<span class="card-text"> Prezzo: ' . $product->price . '</span>
                                 <br>
                                 <a href="#" class="btn btn-primary my-5">Acquista</a>
